@@ -111,9 +111,13 @@ let EventCenter = (function() {
     }
   }
   
+  function off(evt) {
+    delete events[evt]
+  }
   return {
     on: on,
-    fire: fire
+    fire: fire,
+    off: off
   }
 })();
 ```
