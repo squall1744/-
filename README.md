@@ -95,22 +95,22 @@ People.createPeople('Eve'); //{name: 'Adam'}
 ```js
 let EventCenter = (function() {
   let events = {};
-  
-  function(evt, handler) {
+
+  function on(evt, handler) {
     events[evt] = events[evt] || [];
     events[evt].push({
       handler: handler
     });
   }
-  
+
   function fire(evt, args) {
     if(!events[evt]) return;
-  
+
     for(let i = 0; i < events[evt].length; i++) {
       events[evt][i].handler(args);
     }
   }
-  
+
   function off(evt) {
     delete events[evt]
   }
